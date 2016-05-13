@@ -1,0 +1,62 @@
+[
+  {
+    "lng": "-79.385865",
+    "lat": "43.642424",
+    "url": "http:\/\/www.ripleyaquariums.com\/canada\/",
+    "title": "Ripley's Aquarium"
+  },
+  {
+    "lng": "-79.387057",
+    "lat": "43.642566",
+    "url": "http:\/\/www.cntower.ca\/en-ca\/home.html",
+    "title": "CN Tower"
+  },
+  {
+    "lng": "-79.18589",
+    "lat": "43.817699",
+    "url": "http:\/\/www.torontozoo.com\/",
+    "title": "Toronto Zoo"
+  },
+  {
+    "lng": "-79.394777",
+    "lat": "43.66771",
+    "url": "http:\/\/www.rom.on.ca\/en",
+    "title": "Royal Ontario Museum"
+  },
+  {
+    "lng": "-79.392512",
+    "lat": "43.653607",
+    "url": "http:\/\/www.ago.net\/",
+    "title": "Art Gallery of Ontario"
+  },
+  {
+    "lng": "-79.453206",
+    "lat": " 43.725887",
+    "url": "http:\/\/yorkdale.com\/",
+    "title": "Yorkdale Mall"
+  },
+  {
+    "lng": "-79.381455",
+    "lat": "43.653597",
+    "url": "http:\/\/www.torontoeatoncentre.com\/en\/Pages\/default.aspx",
+    "title": "Eaton Center"
+  },
+  {
+    "lng": "-79.38409",
+    "lat": " 43.65344",
+    "url": "http:\/\/www.toronto.ca\/",
+    "title": "City Hall"
+  },
+  {
+    "lng": "-79.377264",
+    "lat": "43.646988",
+    "url": "http:\/\/www.hhof.com\/",
+    "title": "Hockey Hall of Fame"
+  },
+  {
+    "lng": "-79.379099",
+    "lat": "43.643466",
+    "url": "http:\/\/www.theaircanadacentre.com\/",
+    "title": "Air Canada Center"
+  }
+]

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.synaptop.mobile.myapplication">
+
+
+    <!-- This permission is necessary in order for Sunshine to perform network access. -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!-- Google plus login -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.USE_CREDENTIALS" />
+    <uses-permission android:name="android.permission.USE_FINGERPRINT" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.BROADCAST_STICKY" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+
+    <!--
+             The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
+             Google Maps Android API v2, but you must specify either coarse or fine
+             location permissions for the 'MyLocation' functionality.
+         -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".auth.AuthenticationActivity"
+            android:label="@string/title_activity_authentication"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name="com.synaptop.mobile.myapplication.map.BixBike"
+            android:label="@string/title_activity_bix_bike">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.synaptop.mobile.myapplication.MainActivity" />
+
+        </activity>
+        <!--this set up for Google ID-->
+        <intent-filter>
+            <action android:name="android.intent.action.VIEW" />
+
+            <category android:name="android.intent.category.DEFAULT" />
+            <category android:name="android.intent.category.BROWSABLE" />
+            <!--Google ID -->
+            <data
+                android:host="Web client 1"
+                android:scheme="com.googleusercontent.apps.210491937152-bbkhkbucl9q9btkvu7afras0ohckiso2" />
+        </intent-filter>
+        <!--
+                 The API key for Google Maps-based APIs is defined as a string resource.
+                 (See the file "res/values/google_maps_api.xml").
+                 Note that the API key is linked to the encryption key used to sign the APK.
+                 You need a different API key for each encryption key, including the release key that is used to
+                 sign the APK for publishing.
+                 You can define the keys for the debug and release targets in src/debug/ and src/release/.
+             -->
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyDzMmY0MELtdDfDWg-_y3VMf_vBZ5J8zA8" />
+
+
+    </application>
+
+</manifest>
