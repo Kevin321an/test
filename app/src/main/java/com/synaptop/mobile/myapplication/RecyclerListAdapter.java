@@ -70,9 +70,6 @@ public class RecyclerListAdapter extends RecyclerView.Adapter<RecyclerListAdapte
         holder.title.setText(is.title);
         holder.url.setText(is.url);
 
-       // holder.lat.setText(Float.toString(is.lat));
-        //holder.lng.setText(Float.toString(is.lng));
-
         final String url = is.url;
         final float lat = is.lat;
         final float lng = is.lng;
@@ -86,7 +83,7 @@ public class RecyclerListAdapter extends RecyclerView.Adapter<RecyclerListAdapte
             }
         });
 
-        //ope
+        //open spot in Map by lat and lng
         holder.location.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -96,6 +93,8 @@ public class RecyclerListAdapter extends RecyclerView.Adapter<RecyclerListAdapte
                 mContext.startActivity(intent);
             }
         });
+
+        // load pictures
         switch (is.title) {
             case "Ripley's Aquarium":
                 Picasso.with(mContext).load(R.drawable.aquarium).resize(80, 80).into(holder.img);
@@ -139,7 +138,7 @@ public class RecyclerListAdapter extends RecyclerView.Adapter<RecyclerListAdapte
         return mCursor.size();
         //return mItems.size();
     }
-
+    //get the data from main activity
     public void swapCursor(ArrayList newCursor) {
         mCursor = newCursor;
         notifyDataSetChanged();
@@ -147,7 +146,7 @@ public class RecyclerListAdapter extends RecyclerView.Adapter<RecyclerListAdapte
 
     public class ItemViewHolder extends RecyclerView.ViewHolder {
         public CardView cardV;
-        private TextView url, title, lat, lng;
+        private TextView url, title;
         private ImageView img, location;
 
         public ItemViewHolder(View itemView) {
@@ -156,8 +155,6 @@ public class RecyclerListAdapter extends RecyclerView.Adapter<RecyclerListAdapte
             cardV = (CardView) itemView.findViewById(R.id.card_view);
             url = (TextView) itemView.findViewById(R.id.url);
             title = (TextView) itemView.findViewById(R.id.title);
-            //lat = (TextView) itemView.findViewById(R.id.lat);
-            //lng = (TextView) itemView.findViewById(R.id.lng);
             location = (ImageView) itemView.findViewById(R.id.location);
         }
     }

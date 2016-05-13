@@ -93,28 +93,23 @@ public class BixBike extends AppCompatActivity implements OnMapReadyCallback, Ac
         mMap = googleMap;
         mMap.setOnMyLocationButtonClickListener(this);
         enableMyLocation();
+        getCurrentPosition();
 
-
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
-                != PackageManager.PERMISSION_GRANTED) {
-            // Permission to access the location is missing.
-            PermissionUtils.requestPermission(this, LOCATION_PERMISSION_REQUEST_CODE,
-                    Manifest.permission.ACCESS_FINE_LOCATION, true);
-        } else if (mMap != null) {
-            getCurrentPosition();
-            // Access to the location has been granted to the app.
-        }
     }
     //move camera to current location
     private void getCurrentPosition() {
-        Location l = getLastKnownLocation();
-        double la = l.getLatitude();
-        double lng = l.getLongitude();
-
-        CameraPosition position = new CameraPosition.Builder()
-                .target(new LatLng(la, lng))
-                .zoom(14).build();
-        mMap.animateCamera(CameraUpdateFactory.newCameraPosition(position));
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
+                != PackageManager.PERMISSION_GRANTED) {
+        } else if (mMap != null) {
+            // Access to the location has been granted to the app.
+            Location l = getLastKnownLocation();
+            double la = l.getLatitude();
+            double lng = l.getLongitude();
+            CameraPosition position = new CameraPosition.Builder()
+                    .target(new LatLng(la, lng))
+                    .zoom(14).build();
+            mMap.animateCamera(CameraUpdateFactory.newCameraPosition(position));
+        }
     }
 
     //get the current Location value
@@ -123,14 +118,7 @@ public class BixBike extends AppCompatActivity implements OnMapReadyCallback, Ac
         List<String> providers = myLocationManager.getProviders(true);
         Location bestLocation = null;
         for (String provider : providers) {
-            if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
-                    != PackageManager.PERMISSION_GRANTED) {
-                // Permission to access the location is missing.
-                PermissionUtils.requestPermission(this, LOCATION_PERMISSION_REQUEST_CODE,
-                        Manifest.permission.ACCESS_FINE_LOCATION, true);
-            } else if (mMap != null) {
                 // Access to the location has been granted to the app.
-
                 Location l = myLocationManager.getLastKnownLocation(provider);
                 if (l == null) {
                     continue;
@@ -139,7 +127,6 @@ public class BixBike extends AppCompatActivity implements OnMapReadyCallback, Ac
                     // Found best last known location: %s", l);
                     bestLocation = l;
                 }
-            }
         }
         return bestLocation;
     }
@@ -178,7 +165,7 @@ public class BixBike extends AppCompatActivity implements OnMapReadyCallback, Ac
         if (PermissionUtils.isPermissionGranted(permissions, grantResults,
                 Manifest.permission.ACCESS_FINE_LOCATION)) {
             // Enable the my location layer if the permission has been granted.
-
+            getCurrentPosition();
             enableMyLocation();
         } else {
             // Display the missing permission error dialog when the fragments resume.
@@ -312,7 +299,6 @@ public class BixBike extends AppCompatActivity implements OnMapReadyCallback, Ac
                     mMap.addMarker(new MarkerOptions().position(spot).title(i.title+ "  Bike available: " + i.available ));
                 }
             }
-
         }
     }
 
